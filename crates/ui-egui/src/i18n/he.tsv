@@ -1,0 +1,1334 @@
+# Hebrew (he) catalog. Columns, separated by a TAB:  context <TAB> source <TAB> translation
+#
+#   context  empty                a plain UI string; `source` is the English text in the code
+#            @id                  a command id (e.g. slide.new): wins over the English text for
+#                                 that menu item, so one id can read differently from its twin
+#            @plural              `source` is "one|other" (English forms); the translation lists the
+#                                 language's forms separated by "|" (see `plural` in i18n/mod.rs):
+#                                 one (1), other (0, 2+). CLDR Hebrew also has a "two" form, but
+#                                 after a numeral it is written like "other" (2 שקופיות), so two
+#                                 forms suffice.
+#            anything else        a disambiguating context passed to `tr_ctx`
+#   escapes  \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns.
+#   lines starting with # and blank lines are ignored.
+#
+# Clean-room: every entry was written from the plain meaning of the English label using ordinary
+# Hebrew computing vocabulary. No proprietary localisation resource, string table or product UI
+# (PowerPoint's included) was consulted or copied; add entries the same way.
+# Product and technology names (DeckCraft, PPTX, PDF, SmartArt, WordArt ...) stay in Latin letters;
+# the trailing "…" of dialog commands is kept. Digits are Western (0-9).
+#
+# Write every entry in logical (typing) order. The interface draws text left to right, so
+# i18n/mod.rs puts each entry into display order when it loads the catalog (bidi::display_rtl);
+# spaces and a colon at either end of an entry stay at that end, next to what the code appends.
+
+	  Fixed date (empty = update automatically):	  תאריך קבוע (ריק = עדכון אוטומטי):
+	  Footer text:	  טקסט כותרת תחתונה:
+	(missing)	(חסר)
+	(none)	(ללא)
+	(not checked)	(לא נבדק)
+	+ Add	+ הוספה
+	+ New Comment	+ הערה חדשה
+	+ New Slide	+ שקופית חדשה
+	+ Row	+ שורה
+	+ Series	+ סדרה
+	3-D	תלת-ממד
+	A photo album holds at most 48 pictures or text boxes	אלבום תמונות מכיל לכל היותר 48 תמונות או תיבות טקסט
+	A+	A+
+	A-	A-
+	ALL pictures black and white	כל התמונות בשחור-לבן
+	Aa	Aa
+	Abc	Abc
+	About	אודות
+	About DeckCraft	אודות DeckCraft
+	Accent 1	הדגשה 1
+	Accent 2	הדגשה 2
+	Accent 3	הדגשה 3
+	Accent 4	הדגשה 4
+	Accent 5	הדגשה 5
+	Accent 6	הדגשה 6
+	Accept	קבלה
+	Accept\nAll	קבלת\nהכול
+	Accept All ({n})	קבלת הכול ({n})
+	Accept Revision	קבלת שינוי
+	Accessibility	נגישות
+	Accessibility Checker	בודק הנגישות
+	Account	חשבון
+	Action	פעולה
+	Action Buttons	לחצני פעולה
+	Action Settings	הגדרות פעולה
+	Action Settings…	הגדרות פעולה…
+	Add\nAnimation	הוספת\nהנפשה
+	Add Animation	הוספת הנפשה
+	Add Assistant	הוספת עוזר
+	Add Font	הוספת גופן
+	Add Guide	הוספת קו מנחה
+	Add Horizontal Guide	הוספת קו מנחה אופקי
+	Add Pictures…	הוספת תמונות…
+	Add Point	הוספת נקודה
+	Add Section	הוספת מקטע
+	Add Shape	הוספת צורה
+	Add Shape Above	הוספת צורה מעל
+	Add Shape After	הוספת צורה אחרי
+	Add Shape Before	הוספת צורה לפני
+	Add Shape Below	הוספת צורה מתחת
+	Add Vertical Guide	הוספת קו מנחה אנכי
+	Add a picture or a text box first	תחילה יש להוסיף תמונה או תיבת טקסט
+	Add to Dictionary	הוספה למילון
+	Add to Quick Access Toolbar	הוספה לסרגל הכלים לגישה מהירה
+	Address:	כתובת:
+	Adjust	התאמה
+	Adjust Shape	התאמת צורה
+	Advanced Animation	הנפשה מתקדמת
+	After Previous	אחרי הקודם
+	After text	אחרי הטקסט
+	After:	אחרי:
+	Album theme	ערכת נושא לאלבום
+	Align	יישור
+	Align Bottom	יישור לתחתית
+	Align Cell Text	יישור טקסט בתא
+	Align Center	יישור למרכז
+	Align Left	יישור לשמאל
+	Align Middle	יישור לאמצע
+	Align Right	יישור לימין
+	Align Selected Objects	יישור האובייקטים שנבחרו
+	Align Text	יישור טקסט
+	Align Top	יישור לראש
+	Align or Distribute	יישור או פיזור
+	Align to Slide	יישור לשקופית
+	Alignment	יישור
+	Alignment:	יישור:
+	All Borders	כל הגבולות
+	All caps	אותיות רישיות בלבד
+	All slides	כל השקופיות
+	Alt\nText	טקסט\nחלופי
+	Alt Text	טקסט חלופי
+	An open-source, clean-room project. Not affiliated with Microsoft.	פרויקט קוד פתוח שנכתב מאפס. אינו קשור ל-Microsoft.
+	Animated GIF (.gif)	GIF מונפש (‎.gif)
+	Animation	הנפשה
+	Animation\nPainter	מברשת\nהנפשה
+	Animation\nPane	חלונית\nהנפשה
+	Animation Gallery	גלריית הנפשות
+	Animation Painter	מברשת הנפשה
+	Animation Painter (double-click to keep it on)	מברשת הנפשה (לחיצה כפולה משאירה אותה פעילה)
+	Animation Pane	חלונית הנפשה
+	Animation Styles	סגנונות הנפשה
+	Animations	הנפשות
+	Animations on Slide	הנפשות בשקופית
+	Appearance	מראה
+	Apply	החלה
+	Apply\nTo All	החלה\nעל הכול
+	Apply Animation	החלת הנפשה
+	Apply Design Idea	החלת רעיון עיצוב
+	Apply To All	החלה על הכול
+	Apply to All	החלה על הכול
+	Arrange	סידור
+	Arrow	חץ
+	Arrow at end	חץ בסוף
+	Arrow at start	חץ בהתחלה
+	Arrows	חצים
+	Arrows at both ends	חצים בשני הקצוות
+	Artistic\nEffects	אפקטים\nאמנותיים
+	Artistic Effects	אפקטים אמנותיים
+	As:	בתור:
+	At	ב
+	Audio	שמע
+	Audio from File…	שמע מקובץ…
+	Auto	אוטומטי
+	AutoCorrect	תיקון אוטומטי
+	AutoCorrect Options	אפשרויות תיקון אוטומטי
+	AutoCorrect Options…	אפשרויות תיקון אוטומטי…
+	AutoCorrect as you type	תיקון אוטומטי בזמן ההקלדה
+	Autofit	התאמה אוטומטית
+	Automatic	אוטומטי
+	Available formats:	תבניות זמינות:
+	Back (Esc)	חזרה (Esc)
+	Background	רקע
+	Background\nStyles	סגנונות\nרקע
+	Backspace	Backspace
+	Banded Columns	עמודות מפוספסות
+	Banded Rows	שורות מפוספסות
+	Basic Cycle	מחזור בסיסי
+	Basic List	רשימה בסיסית
+	Basic Process	תהליך בסיסי
+	Before text	לפני הטקסט
+	Before you share it, check the presentation for things people with disabilities might find hard to read.	לפני השיתוף, כדאי לבדוק אם יש במצגת דברים שאנשים עם מוגבלויות יתקשו לקרוא.
+	Begin arrow	חץ התחלה
+	Bevel	שיפוע
+	Binary assets added	קובצי נכסים בינאריים שנוספו
+	Binary assets removed	קובצי נכסים בינאריים שהוסרו
+	Blank Presentation	מצגת ריקה
+	Body	גוף
+	Body font	גופן גוף הטקסט
+	Bold	מודגש
+	Borders	גבולות
+	Both	שניהם
+	Bottom	תחתון
+	Bottom Border	גבול תחתון
+	Bottom Left	שמאל למטה
+	Bottom Right	ימין למטה
+	Bottom bevel	שיפוע תחתון
+	Bottom left	שמאל למטה
+	Bottom right	ימין למטה
+	Brightness	בהירות
+	Brightness {pct}%	בהירות {pct}%
+	Bring\nForward	העברה\nקדימה
+	Bring Forward	העברה קדימה
+	Bring to Front	העברה לחזית
+	Browse	עיון
+	Browse for Themes…	עיון בערכות נושא…
+	Browsed at a kiosk (full screen)	עיון בעמדת מידע (מסך מלא)
+	Browsed by an individual (window)	עיון על ידי אדם יחיד (חלון)
+	Bulleted	עם תבליטים
+	Bullets	תבליטים
+	Bullets and Numbering	תבליטים ומספור
+	Bullets and Numbering…	תבליטים ומספור…
+	By	לפי
+	By Paragraph	לפי פיסקה
+	As One Object	כאובייקט אחד
+	Cameo	קמאו
+	Camera capture is not available yet	צילום במצלמה עדיין אינו זמין
+	Cancel	ביטול
+	Capitalize Each Word	אות רישית בתחילת כל מילה
+	Capitalize first letter of sentences	אות רישית בתחילת משפט
+	Capitalize names of days	אות רישית בשמות ימים
+	Caps	רישיות
+	Captions under pictures	כיתובים מתחת לתמונות
+	Cell Margins	שולי תא
+	Cell Size	גודל תא
+	Center	מרכז
+	Center Tab	טאב מרכזי
+	Centered	ממורכז
+	Change\nChart Type	שינוי\nסוג תרשים
+	Change Case	שינוי רישיות
+	Change Chart Type	שינוי סוג תרשים
+	Change Colors	שינוי צבעים
+	Change File Type	שינוי סוג קובץ
+	Change Layout	שינוי פריסה
+	Change Picture	החלפת תמונה
+	Change Picture…	החלפת תמונה…
+	Change Shape	שינוי צורה
+	Change Spelling	שינוי איות
+	Character Spacing	ריווח תווים
+	Character spacing must be a number	ריווח התווים חייב להיות מספר
+	Chart	תרשים
+	Chart Data	נתוני תרשים
+	Chart Design	עיצוב תרשים
+	Chart Elements	רכיבי תרשים
+	Chart Layouts	פריסות תרשים
+	Chart…	תרשים…
+	Check\nAccessibility	בדיקת\nנגישות
+	Check Accessibility	בדיקת נגישות
+	Check for Issues	בדיקת בעיות
+	Choose a SmartArt Graphic	בחירת גרפיקת SmartArt
+	Choose a font	בחירת גופן
+	Choosing a presentation to reuse needs the desktop app	בחירת מצגת לשימוש חוזר דורשת את יישום שולחן העבודה
+	Choosing a sound file needs the desktop app	בחירת קובץ צליל דורשת את יישום שולחן העבודה
+	Clear	ניקוי
+	Clear All	ניקוי הכול
+	Clear All Formatting	ניקוי כל העיצוב
+	Click a colour in the picture to make it transparent	לחיצה על צבע בתמונה הופכת אותו לשקוף
+	Click a symbol to insert it at the insertion point.	לחיצה על סמל מוסיפה אותו בנקודת ההוספה.
+	Click the slide to take the colour under the pointer	לחיצה על השקופית דוגמת את הצבע שמתחת לסמן
+	Click the slide to zoom in. Esc cancels.	לחיצה על השקופית מגדילה את התצוגה. Esc מבטל.
+	Click to add first slide	לחיצה להוספת שקופית ראשונה
+	Click to add notes	לחיצה להוספת הערות
+	Click to add text	לחיצה להוספת טקסט
+	Click to change this one; Shift-click to change all	לחיצה משנה את זה; לחיצה עם Shift משנה את כולם
+	Clipboard	לוח
+	Close	סגירה
+	Close\nMaster View	סגירת\nתצוגת תבנית בסיס
+	Close Master View	סגירת תצוגת תבנית בסיס
+	Collapse the Ribbon	כיווץ רצועת הכלים
+	Color	צבע
+	Color At	צבע ב
+	Colors	צבעים
+	Columns	עמודות
+	Command Palette	לוח הפקודות
+	Comment	הערה
+	Comments	הערות
+	Commit Composition	אישור הרכבת תווים
+	Commits	שינויים שנשמרו
+	Community Links	קישורי קהילה
+	Compare	השוואה
+	Compared with {name}	בהשוואה ל-{name}
+	Compare…	השוואה…
+	Compose Text	הרכבת טקסט
+	Compress Pictures	דחיסת תמונות
+	Connect Shapes	חיבור צורות
+	Connection Sites	נקודות חיבור
+	Content	תוכן
+	Contrast	ניגודיות
+	Contrast {pct}%	ניגודיות {pct}%
+	Contributors	תורמים
+	Convert	המרה
+	Convert to Shapes	המרה לצורות
+	Convert to SmartArt	המרה ל-SmartArt
+	Convert to Text	המרה לטקסט
+	Copied the path	הנתיב הועתק
+	Copy	העתקה
+	Copy path	העתקת נתיב
+	Corner Point	נקודת פינה
+	Correct TWo INitial CApitals	תיקון שתי אותיות רישיות בתחילת מילה
+	Correct accidental use of cAPS LOCK key	תיקון שימוש בשוגג במקש Caps Lock
+	Corrections	תיקונים
+	Create	יצירה
+	Create Graphic	יצירת גרפיקה
+	Create Handouts	יצירת דפי מידע
+	Create New Theme Colors	יצירת צבעי ערכת נושא חדשים
+	Create New Theme Fonts	יצירת גופני ערכת נושא חדשים
+	Create PDF	יצירת PDF
+	Create a PDF Document	יצירת מסמך PDF
+	Crop	חיתוך
+	Crop 10% each side	חיתוך 10% מכל צד
+	Crop 20% each side	חיתוך 20% מכל צד
+	Crop to Shape	חיתוך לצורה
+	Currency	מטבע
+	Custom\nShow	מצגת\nמותאמת אישית
+	Custom Range	טווח מותאם אישית
+	Custom Show	מצגת מותאמת אישית
+	Custom Shows	מצגות מותאמות אישית
+	Custom Show…	מצגת מותאמת אישית…
+	Custom Slide Show	מצגת שקופיות מותאמת אישית
+	Custom character:	תו מותאם אישית:
+	Custom width	רוחב מותאם אישית
+	Customize	התאמה אישית
+	Customize Colors…	התאמה אישית של צבעים…
+	Customize Fonts…	התאמה אישית של גופנים…
+	Customize Quick Access Toolbar	התאמה אישית של סרגל הכלים לגישה מהירה
+	Cut	גזירה
+	Cycle	מחזור
+	Dark\nMode	מצב\nכהה
+	Dark Mode	מצב כהה
+	Dark appearance	מראה כהה
+	Dash	מקף
+	Dash Dot	מקף נקודה
+	Dashes	מקפים
+	Data	נתונים
+	Date	תאריך
+	Date &\nTime	תאריך\nושעה
+	Date & Time	תאריך ושעה
+	Date and Time	תאריך ושעה
+	Date and time	תאריך ושעה
+	Decimal	עשרוני
+	Decimal Tab	טאב עשרוני
+	DeckCraft	DeckCraft
+	DeckCraft has no accounts: there is nothing to sign in to, and your presentations stay on your device.	ל-DeckCraft אין חשבונות: אין לאן להיכנס, והמצגות שלך נשארות במכשיר שלך.
+	Decrease Font Size	הקטנת גודל גופן
+	Decrease List Level	הקטנת רמת רשימה
+	Default tab stops (in):	עצירות טאב ברירת מחדל (אינץ'):
+	Delay:	השהיה:
+	Delete	מחיקה
+	Delete Columns	מחיקת עמודות
+	Delete Comment	מחיקת הערה
+	Delete Guide	מחיקת קו מנחה
+	Delete Layout	מחיקת פריסה
+	Delete Point	מחיקת נקודה
+	Delete Repeated Word	מחיקת מילה כפולה
+	Delete Rows	מחיקת שורות
+	Delete Slide	מחיקת שקופית
+	Delete Table	מחיקת טבלה
+	Delete Text	מחיקת טקסט
+	Demote	הורדת רמה
+	Deselect	ביטול בחירה
+	Design	עיצוב
+	Design\nIdeas	רעיונות\nעיצוב
+	Design Ideas	רעיונות עיצוב
+	Designer	מעצב
+	Diagonal Down Border	גבול אלכסוני יורד
+	Diagonal Up Border	גבול אלכסוני עולה
+	Diamond	מעוין
+	Dictionary: {name}	מילון: {name}
+	Discard Recovered Presentations	מחיקת מצגות משוחזרות
+	Display drawing guides on screen	הצגת קווי ציור מנחים על המסך
+	Display grid on screen	הצגת רשת על המסך
+	Display name	שם תצוגה
+	Distribute	פיזור
+	Distribute Columns	פיזור עמודות
+	Distribute Horizontally	פיזור אופקי
+	Distribute Rows	פיזור שורות
+	Distribute Vertically	פיזור אנכי
+	Distributed	מפוזר
+	Do not Autofit	ללא התאמה אוטומטית
+	Do not check spelling or grammar	לא לבדוק איות או דקדוק
+	Don't show on title slide	לא להציג בשקופית הכותרת
+	Done	סיום
+	Dot	נקודה
+	Dotted	מנוקד
+	Double	כפול
+	Down	למטה
+	Draw	ציור
+	Draw Borders	ציור גבולות
+	Draw Table	ציור טבלה
+	Drawing	ציור
+	Duplicate	שכפול
+	Duplicate Selected Slides	שכפול השקופיות שנבחרו
+	Duplicate Slide	שכפול שקופית
+	Duration:	משך:
+	Edit	עריכה
+	Edit\nData	עריכת\nנתונים
+	Edit\nShape	עריכת\nצורה
+	Edit Alt Text…	עריכת טקסט חלופי…
+	Edit Data	עריכת נתונים
+	Edit Header & Footer	עריכת כותרת עליונה ותחתונה
+	Edit Master	עריכת תבנית בסיס
+	Edit Photo Album…	עריכת אלבום תמונות…
+	Edit Points	עריכת נקודות
+	Edit Shape	עריכת צורה
+	Edit SmartArt Text	עריכת טקסט SmartArt
+	Edit Text	עריכת טקסט
+	Edit the data: first row = series names, first column = categories.	עריכת הנתונים: שורה ראשונה = שמות סדרות, עמודה ראשונה = קטגוריות.
+	Editing	עריכה
+	Effect\nOptions	אפשרויות\nאפקט
+	Effect Options	אפשרויות אפקט
+	Effects	אפקטים
+	Email Address	כתובת דוא"ל
+	Email address:	כתובת דוא"ל:
+	Emphasis	הדגשה
+	End	סוף
+	End\nReview	סיום\nסקירה
+	End Review	סיום סקירה
+	End Show	סיום המצגת
+	End arrow	חץ סיום
+	End of slide show	סוף מצגת השקופיות
+	End of slide show, click to exit.	סוף מצגת השקופיות, לחיצה ליציאה.
+	End trim (s):	חיתוך סיום (שנ'):
+	Enter	Enter
+	Enter a zoom percent	הזנת אחוז זום
+	Entrance	כניסה
+	Equation	משוואה
+	Eraser	מחק
+	Escape	Escape
+	Exactly	בדיוק
+	Exit	יציאה
+	Exit Edit Points	יציאה מעריכת נקודות
+	Export	ייצוא
+	Export the presentation as:	ייצוא המצגת בתור:
+	Export…	ייצוא…
+	Extra Large (1920 px wide)	גדול במיוחד (רוחב 1920 פיקסלים)
+	Eyedropper	טפטפת
+	Eyedropper: click the slide (Esc cancels)	טפטפת: לחיצה על השקופית (Esc מבטל)
+	Fade in (s):	הופעה הדרגתית (שנ'):
+	Fade out (s):	היעלמות הדרגתית (שנ'):
+	File	קובץ
+	File (Alt+F)	קובץ (Alt+F)
+	Find	חיפוש
+	Find and Replace	חיפוש והחלפה
+	Find whole words only	חיפוש מילים שלמות בלבד
+	Find…	חיפוש…
+	First Column	עמודה ראשונה
+	First Slide	שקופית ראשונה
+	First commit	שינוי ראשון
+	First line	שורה ראשונה
+	Fit	התאמה
+	Fit slide to current window	התאמת השקופית לחלון הנוכחי
+	Fit to\nWindow	התאמה\nלחלון
+	Fit to Window	התאמה לחלון
+	Fit to slide	התאמה לשקופית
+	Flat	שטוח
+	Flip	היפוך
+	Flip Horizontal	היפוך אופקי
+	Flip Vertical	היפוך אנכי
+	Follow Path	מעקב אחר נתיב
+	Follow the layout	לפי הפריסה
+	Font	גופן
+	Font Color	צבע גופן
+	Font Size	גודל גופן
+	Font name	שם גופן
+	Font size must be a number	גודל הגופן חייב להיות מספר
+	Fonts	גופנים
+	Fonts in Presentation	גופנים במצגת
+	Font…	גופן…
+	Footer	כותרת תחתונה
+	Footers	כותרות תחתונות
+	Foreground	חזית
+	Format	עיצוב
+	Format\nBackground	עיצוב\nרקע
+	Format\nPane	חלונית\nעיצוב
+	Format Background	עיצוב רקע
+	Format Background…	עיצוב רקע…
+	Format Painter	מברשת עיצוב
+	Format Painter (double-click to keep it on)	מברשת עיצוב (לחיצה כפולה משאירה אותה פעילה)
+	Format Shape	עיצוב צורה
+	Format Shape…	עיצוב צורה…
+	Formatting State	מצב עיצוב
+	Frame Slides	מסגרת לשקופיות
+	Frame shape	צורת מסגרת
+	Freeform	צורה חופשית
+	From\nCurrent Slide	מהשקופית\nהנוכחית
+	From Bottom	מלמטה
+	From Left	משמאל
+	From Right	מימין
+	From Top	מלמעלה
+	From bottom left	משמאל למטה
+	From bottom right	מימין למטה
+	From center	מהמרכז
+	From the top-left corner of the slide	מהפינה השמאלית העליונה של השקופית
+	From top left	משמאל למעלה
+	From top right	מימין למעלה
+	Full	מלא
+	Full Page Slides	שקופיות בעמוד מלא
+	Get Text	קבלת טקסט
+	Glow	זוהר
+	Go to	מעבר אל
+	Go to Slide	מעבר לשקופית
+	Go to slide {n}	מעבר לשקופית {n}
+	Grab bag	מגוון
+	Gradient fill	מילוי מעבר צבע
+	Gradient stops	נקודות מעבר צבע
+	Gradient…	מעבר צבע…
+	Grayscale	גווני אפור
+	Greek	יוונית
+	Grid\nOptions	אפשרויות\nרשת
+	Grid Options	אפשרויות רשת
+	Grid Options…	אפשרויות רשת…
+	Grid and Guides	רשת וקווים מנחים
+	Gridlines	קווי רשת
+	Group	קיבוץ
+	Group Objects	קיבוץ אובייקטים
+	Guides	קווים מנחים
+	Half	חצי
+	Handout\nMaster	תבנית בסיס\nלדפי מידע
+	Handout Master	תבנית בסיס לדפי מידע
+	Handout Placeholders	מצייני מיקום של דפי מידע
+	Handouts (1 slide per page)	דפי מידע (שקופית אחת בעמוד)
+	Handouts (2 slides per page)	דפי מידע (2 שקופיות בעמוד)
+	Handouts (3 slides per page)	דפי מידע (3 שקופיות בעמוד)
+	Handouts (4 slides per page)	דפי מידע (4 שקופיות בעמוד)
+	Handouts (6 slides per page)	דפי מידע (6 שקופיות בעמוד)
+	Handouts (9 slides per page)	דפי מידע (9 שקופיות בעמוד)
+	Hanging	תלוי
+	Header	כותרת עליונה
+	Header &\nFooter	כותרת עליונה\nותחתונה
+	Header Row	שורת כותרת
+	Header and Footer	כותרת עליונה ותחתונה
+	Header and Footer…	כותרת עליונה ותחתונה…
+	Heading font	גופן כותרות
+	Heavy	עבה
+	Height	גובה
+	Height (in):	גובה (אינץ'):
+	Height:	גובה:
+	Help	עזרה
+	Hide\nSlide	הסתרת\nשקופית
+	Hide All	הסתרת הכול
+	Hide Background Graphics	הסתרת גרפיקת רקע
+	Hide During Show	הסתרה במהלך המצגת
+	Hide Slide	הסתרת שקופית
+	Hide background graphics	הסתרת גרפיקת רקע
+	Hierarchy	היררכיה
+	High	גבוה
+	Highlight click	הדגשת לחיצה
+	Home	בית
+	Horizontal	אופקי
+	Horizontal (in):	אופקי (אינץ'):
+	How would you describe this object and its context to someone who is blind or has low vision?	איך הייתם מתארים את האובייקט הזה ואת ההקשר שלו למי שעיוור או לקוי ראייה?
+	Icon Gallery	גלריית סמלים
+	Icons	סמלים
+	Ignore All	התעלמות מהכול
+	Illustrations	איורים
+	Images	תמונות
+	In	פנימה
+	Include hidden slides	כולל שקופיות מוסתרות
+	Increase Font Size	הגדלת גודל גופן
+	Increase List Level	הגדלת רמת רשימה
+	Indent after text must be a number of inches	הכניסה אחרי הטקסט חייבת להיות מספר אינצ'ים
+	Indent before text must be a number of inches	הכניסה לפני הטקסט חייבת להיות מספר אינצ'ים
+	Info	מידע
+	Ink to\nMath	דיו\nלמתמטיקה
+	Ink to\nShape	דיו\nלצורה
+	Ink to\nText	דיו\nלטקסט
+	Ink to Math (coming soon)	דיו למתמטיקה (בקרוב)
+	Ink to Shape	דיו לצורה
+	Ink to Shape: turn drawn lines, rectangles, ovals and triangles into shapes	דיו לצורה: הפיכת קווים, מלבנים, אליפסות ומשולשים מצוירים לצורות
+	Ink to Text (coming soon)	דיו לטקסט (בקרוב)
+	Inner	פנימי
+	Insert	הוספה
+	Insert\nAbove	הוספה\nמעל
+	Insert\nBelow	הוספה\nמתחת
+	Insert\nLayout	הוספת\nפריסה
+	Insert\nLeft	הוספה\nמשמאל
+	Insert\nPlaceholder	הוספת\nמציין מיקום
+	Insert\nRight	הוספה\nמימין
+	Insert Above	הוספה מעל
+	Insert Below	הוספה מתחת
+	Insert Hyperlink	הוספת היפר-קישור
+	Insert Layout	הוספת פריסה
+	Insert Left	הוספה משמאל
+	Insert Picture	הוספת תמונה
+	Insert Picture in SmartArt	הוספת תמונה ב-SmartArt
+	Insert Picture in SmartArt…	הוספת תמונה ב-SmartArt…
+	Insert Placeholder	הוספת מציין מיקום
+	Insert Right	הוספה מימין
+	Insert Shapes	הוספת צורות
+	Insert Synonym	הוספת מילה נרדפת
+	Insert Table	הוספת טבלה
+	Insert Table…	הוספת טבלה…
+	Insert picture from file…	הוספת תמונה מקובץ…
+	Inserted {n} slides from {path}	נוספו {n} שקופיות מתוך {path}
+	Insert…	הוספה…
+	Inside Borders	גבולות פנימיים
+	Inside Horizontal Border	גבול אופקי פנימי
+	Inside Vertical Border	גבול אנכי פנימי
+	Inspect Presentation	בדיקת המצגת
+	Inspect Shape	בדיקת צורה
+	Inspect Slide	בדיקת שקופית
+	Inter	Inter
+	Interface Language	שפת ממשק
+	Interface language	שפת ממשק
+	Interface size	גודל ממשק
+	Italic	נטוי
+	Japanese	יפנית
+	From\nBeginning	מן\nההתחלה
+	JPEG image (current slide)	תמונת JPEG (השקופית הנוכחית)
+	Join our community on Discord	הצטרפות לקהילה שלנו ב-Discord
+	Join the ArtCraft community on Discord	הצטרפות לקהילת ArtCraft ב-Discord
+	Justify	יישור לשני הצדדים
+	Justify low	יישור לשני הצדדים (נמוך)
+	Keep Source Formatting	שמירת עיצוב המקור
+	Keep Text Only	שמירת טקסט בלבד
+	Language	שפה
+	Language:	שפה:
+	Large	גדול
+	Large (1280 px wide)	גדול (רוחב 1280 פיקסלים)
+	Last Column	עמודה אחרונה
+	Last Slide	שקופית אחרונה
+	Last Slide Viewed	השקופית האחרונה שנצפתה
+	Last commit	שינוי אחרון
+	Layout	פריסה
+	Layout Placeholders	מצייני מיקום של פריסה
+	Layouts	פריסות
+	Learn\nMore	מידע\nנוסף
+	Leave the slide background out: only what is on the slide is drawn	ללא רקע השקופית: רק מה שעל השקופית מצויר
+	Left	שמאל
+	Left Border	גבול שמאלי
+	Left Tab	טאב שמאלי
+	Less Brightness	פחות בהירות
+	Less Contrast	פחות ניגודיות
+	Letter	אות
+	Light/Dark appearance	מראה בהיר/כהה
+	Line Spacing	ריווח שורות
+	Line Spacing Options…	אפשרויות ריווח שורות…
+	Line delta	הפרש שורות
+	Line spacing must be a number	ריווח השורות חייב להיות מספר
+	Linear	ליניארי
+	Lines added	שורות שנוספו
+	Lines deleted	שורות שנמחקו
+	Link	קישור
+	Links	קישורים
+	Link…	קישור…
+	List	רשימה
+	List Commands	רשימת פקודות
+	Lock	נעילה
+	Lock aspect ratio	נעילת יחס גובה-רוחב
+	Long Dash	מקף ארוך
+	Long Dash Dot	מקף ארוך נקודה
+	Loop continuously until 'Esc'	חזרה ברציפות עד ללחיצה על Esc
+	Loop until Stopped	חזרה עד לעצירה
+	Loop Until Next Sound	חזרה עד לצליל הבא
+	Loose	רופף
+	Low	נמוך
+	Manage Presentation	ניהול המצגת
+	Margins (pt)	שוליים (נק')
+	Mark as decorative	סימון כקישוטי
+	Mark selected text as:	סימון הטקסט שנבחר בתור:
+	Master Layout	פריסת תבנית בסיס
+	Master Views	תצוגות תבנית בסיס
+	Match case	התאמת רישיות
+	Match {i} of {total} on slide {slide}{where}.	התאמה {i} מתוך {total} בשקופית {slide}{where}.
+	notes	הערות
+	Math	מתמטיקה
+	Matrix	מטריצה
+	Maximize content (else ensure fit)	מיקסום התוכן (אחרת הבטחת התאמה)
+	Media	מדיה
+	Media Info	פרטי מדיה
+	Medium	בינוני
+	Medium (960 px wide)	בינוני (רוחב 960 פיקסלים)
+	Merge	מיזוג
+	Merge\nCells	מיזוג\nתאים
+	Merge\nShapes	מיזוג\nצורות
+	Merge Cells	מיזוג תאים
+	Merge Shapes	מיזוג צורות
+	Merged PRs	בקשות משיכה שמוזגו
+	Middle	אמצע
+	Mirror type	סוג שיקוף
+	Miter	חיבור חד
+	Models	מודלים
+	More Brightness	יותר בהירות
+	More Colors… #	צבעים נוספים… #
+	More Contrast	יותר ניגודיות
+	More presentations	מצגות נוספות
+	More templates	תבניות נוספות
+	More themes	ערכות נושא נוספות
+	Motion	תנועה
+	Motion Paths	נתיבי תנועה
+	Mouse Click	לחיצת עכבר
+	Mouse Over	מעבר עכבר
+	Move	הזזה
+	Move Down	הזזה למטה
+	Move Guide	הזזת קו מנחה
+	Move Handle	הזזת ידית
+	Move Insertion Point	הזזת נקודת ההוספה
+	Move Point	הזזת נקודה
+	Move Section	הזזת מקטע
+	Move Section Down	הזזת מקטע למטה
+	Move Section Up	הזזת מקטע למעלה
+	Move Slide	הזזת שקופית
+	Move Up	הזזה למעלה
+	Multiple	מרובה
+	Mute	השתקה
+	Name (A–Z)	שם (א–ת)
+	Name:	שם:
+	Narrow	צר
+	New	חדש
+	New\nComment	הערה\nחדשה
+	New\nSlide	שקופית\nחדשה
+	New\nWindow	חלון\nחדש
+	New Comment	הערה חדשה
+	New Photo Album…	אלבום תמונות חדש…
+	New Presentation	מצגת חדשה
+	New Slide	שקופית חדשה
+	New Slide (⇧⌘N)	שקופית חדשה (⇧⌘N)
+	New Text Box	תיבת טקסט חדשה
+	New Window	חלון חדש
+	New show name:	שם המצגת החדשה:
+	Next	הבא
+	Next Comment	ההערה הבאה
+	Next Page	העמוד הבא
+	Next Slide	השקופית הבאה
+	Next Window	החלון הבא
+	No Border	ללא גבול
+	No Color	ללא צבע
+	No Fill	ללא מילוי
+	No Outline	ללא קו מיתאר
+	No Glow	ללא זוהר
+	No Reflection	ללא השתקפות
+	No Shadow	ללא צל
+	No Transform	ללא טרנספורמציה
+	No accessibility issues found. People with disabilities should not have difficulty reading this document.	לא נמצאו בעיות נגישות. אנשים עם מוגבלויות לא אמורים להתקשות בקריאת המסמך הזה.
+	No contributor data was built into this copy.	לא נבנו נתוני תורמים לתוך העותק הזה.
+	No differences left.	לא נותרו הבדלים.
+	No fill	ללא מילוי
+	No icons match.	אין סמלים תואמים.
+	No model credits were built into this copy.	לא נבנו קרדיטים של מודלים לתוך העותק הזה.
+	No presentation is open.	אין מצגת פתוחה.
+	No recent presentations match “{query}”.	אין מצגות אחרונות שתואמות ל-“{query}”.
+	No themes or templates match “{query}”.	אין ערכות נושא או תבניות שתואמות ל-“{query}”.
+	None	ללא
+	Normal	רגיל
+	Not saved yet	טרם נשמר
+	Notes	הערות
+	Notes\nMaster	תבנית בסיס\nלהערות
+	Notes Master	תבנית בסיס להערות
+	Notes Page	עמוד הערות
+	Notes Pages	עמודי הערות
+	Notes Placeholders	מצייני מיקום של הערות
+	Nothing to print: every slide in the range is hidden.	אין מה להדפיס: כל השקופיות בטווח מוסתרות.
+	Nudge	הזזה עדינה
+	Number of columns:	מספר עמודות:
+	Number of rows:	מספר שורות:
+	Numbered	ממוספר
+	Numbering	מספור
+	OK	אישור
+	Offset X	היסט X
+	Offset Y	היסט Y
+	On Click	בלחיצה
+	On Click of… (none)	בלחיצה על… (ללא)
+	On Mouse Click	בלחיצת עכבר
+	Open	פתיחה
+	Open Arrow	חץ פתוח
+	Open Data	פתיחת נתונים
+	Open Dialog	פתיחת תיבת דו-שיח
+	Open Recovered Presentations	פתיחת מצגות משוחזרות
+	Open a presentation from a folder (Ctrl+O)	פתיחת מצגת מתיקייה (Ctrl+O)
+	Open another window on this presentation	פתיחת חלון נוסף למצגת הזו
+	Open file location	פתיחת מיקום הקובץ
+	Open source under MIT OR Apache-2.0. Not affiliated with Microsoft.	קוד פתוח ברישיון MIT או Apache-2.0. אינו קשור ל-Microsoft.
+	Opened the presentation as a PDF to print	המצגת נפתחה כ-PDF להדפסה
+	Open…	פתיחה…
+	Options	אפשרויות
+	Order Objects	סדר אובייקטים
+	Ordinals (1st) with superscript	מספרים סודרים (1st) בכתב עילי
+	Orientation:	כיוון:
+	Other Sound…	צליל אחר…
+	Out	החוצה
+	Outer	חיצוני
+	Outline (.txt)	חלוקה לרמות (‎.txt)
+	Outline View	תצוגת חלוקה לרמות
+	Outside Borders	גבולות חיצוניים
+	Oval	אליפסה
+	Oval ends	קצוות אליפטיים
+	PDF document (.pdf)	מסמך PDF (‎.pdf)
+	PNG images (all slides)	תמונות PNG (כל השקופיות)
+	PNG images (current slide)	תמונות PNG (השקופית הנוכחית)
+	Page Number	מספר עמוד
+	Page Setup…	הגדרת עמוד…
+	PageDown	Page Down
+	PageUp	Page Up
+	Pane	חלונית
+	Paragraph	פיסקה
+	Paragraph…	פיסקה…
+	Pass pictures to insert.photoAlbum	יש להעביר תמונות אל insert.photoAlbum
+	Paste	הדבקה
+	Paste (⌘V)	הדבקה (⌘V)
+	Paste Formatting	הדבקת עיצוב
+	Paste Special	הדבקה מיוחדת
+	Paste Special…	הדבקה מיוחדת…
+	Paste and Match Formatting	הדבקה והתאמת עיצוב
+	Paste or type an outline. Unindented lines become slide titles; tab-indented lines become bullets.	הדבקה או הקלדה של חלוקה לרמות. שורות ללא כניסה הופכות לכותרות שקופיות; שורות עם כניסת טאב הופכות לתבליטים.
+	Path	נתיב
+	Pattern fill	מילוי תבנית
+	Pause	השהיה
+	Pen Color	צבע עט
+	Pen Style	סגנון עט
+	Pen Weight	עובי עט
+	Percent:	אחוז:
+	Perspective	פרספקטיבה
+	Photo\nAlbum	אלבום\nתמונות
+	Photo Album	אלבום תמונות
+	Photo Album options	אפשרויות אלבום תמונות
+	Photo Album…	אלבום תמונות…
+	Pick a graphic; type one item per line.	בחירת גרפיקה; הקלדת פריט אחד בכל שורה.
+	Picture	תמונה
+	Picture (PNG)	תמונה (PNG)
+	Picture Border	גבול תמונה
+	Picture Format	עיצוב תמונה
+	Picture Style Gallery	גלריית סגנונות תמונה
+	Picture Styles	סגנונות תמונה
+	Picture from File…	תמונה מקובץ…
+	Picture layout	פריסת תמונה
+	Picture or texture fill	מילוי תמונה או מרקם
+	Picture source	מקור תמונה
+	Pictures	תמונות
+	Pictures in album	תמונות באלבום
+	Placeholders	מצייני מיקום
+	Plan\nBuild\nLaunch	תכנון\nבנייה\nהשקה
+	Play	הפעלה
+	Play Across Slides	הפעלה לאורך שקופיות
+	Play Full Screen	הפעלה במסך מלא
+	Play Narrations	הפעלת קריינות
+	Play from\nCurrent Slide	הפעלה מהשקופית\nהנוכחית
+	Play from\nStart	הפעלה\nמההתחלה
+	Play from Current Slide	הפעלה מהשקופית הנוכחית
+	Play from Start	הפעלה מההתחלה
+	Play this slide's animations on the canvas	הפעלת ההנפשות של השקופית הזו על הבד
+	Play/Pause	הפעלה/השהיה
+	Play/Pause GIF	הפעלה/השהיה של GIF
+	Playback	הפעלה
+	Point Type	סוג נקודה
+	Points	נקודות
+	Position Objects	מיקום אובייקטים
+	Position and Size	מיקום וגודל
+	Post	פרסום
+	Poster Frame	תמונת כרזה
+	PowerPoint Presentation (.pptx)	מצגת PowerPoint (‎.pptx)
+	Preferences	העדפות
+	Preferences…	העדפות…
+	Presentations	מצגות
+	Presentations and slide shows, rebuilt from scratch in pure Rust.	מצגות והצגות שקופיות, שנבנו מחדש מאפס ב-Rust טהור.
+	Presentations you open show up here. Use Open to browse for one. 	מצגות שפותחים מופיעות כאן. אפשר להשתמש ב'פתיחה' כדי לחפש אחת. 
+	Presentations you open show up here. Use Open to browse for one.	מצגות שפותחים מופיעות כאן. אפשר להשתמש ב'פתיחה' כדי לחפש אחת.
+	Presented by a speaker (full screen)	מוצג על ידי מרצה (מסך מלא)
+	Presenter\nView	תצוגת\nמציג
+	Presenter View	תצוגת מציג
+	Preserve	שימור
+	Preset gradients	מעברי צבע מוגדרים מראש
+	Preview	תצוגה מקדימה
+	Preview Animations	תצוגה מקדימה של הנפשות
+	Previewing animations	תצוגה מקדימה של ההנפשות
+	Previous Comment	ההערה הקודמת
+	Previous Page	העמוד הקודם
+	Previous Slide	השקופית הקודמת
+	Print	הדפסה
+	Print All Slides	הדפסת כל השקופיות
+	Print Current Slide	הדפסת השקופית הנוכחית
+	Print Hidden Slides	הדפסת שקופיות מוסתרות
+	Print layout:	פריסת הדפסה:
+	Print…	הדפסה…
+	Process	תהליך
+	Product Information	פרטי המוצר
+	Program:	תוכנית:
+	Promote	העלאת רמה
+	Proofing	הגהה
+	Properties	מאפיינים
+	Punctuation	פיסוק
+	Put a picture in the selected node's picture placeholder	הצבת תמונה במציין מיקום התמונה של הצומת שנבחר
+	Pyramid	פירמידה
+	Quick\nStyles	סגנונות\nמהירים
+	Quick Access Toolbar	סרגל כלים לגישה מהירה
+	Quick Styles	סגנונות מהירים
+	RRGGBB	RRGGBB
+	Radial	רדיאלי
+	Reading View	תצוגת קריאה
+	Real name	שם אמיתי
+	Recent	אחרונים
+	Recolor	צביעה מחדש
+	Recolor Gallery	גלריית צביעה מחדש
+	Record	הקלטה
+	Recording narration needs audio capture (coming soon)	הקלטת קריינות דורשת לכידת שמע (בקרוב)
+	Recover Unsaved Presentations	שחזור מצגות שלא נשמרו
+	Recovered Presentations	מצגות משוחזרות
+	Rectangle	מלבן
+	Rectangular	מלבני
+	Redo	בצע שוב
+	Reflection	השתקפות
+	Regroup	קיבוץ מחדש
+	Rehearse\nTimings	חזרה על\nתזמונים
+	Relationship	קשר
+	Remove	הסרה
+	Remove\nBackground	הסרת\nרקע
+	Remove All Animations	הסרת כל ההנפשות
+	Remove All Sections	הסרת כל המקטעים
+	Remove Animation	הסרת הנפשה
+	Remove Background	הסרת רקע
+	Remove Less (tighter)	הסרה מועטה יותר (הדוק)
+	Remove More (looser)	הסרה רבה יותר (רופף)
+	Remove Section	הסרת מקטע
+	Remove Section & Slides	הסרת מקטע ושקופיות
+	Remove Shape	הסרת צורה
+	Remove bullets and numbering	הסרת תבליטים ומספור
+	Remove from Quick Access Toolbar	הסרה מסרגל הכלים לגישה מהירה
+	Remove from Recent	הסרה מהאחרונים
+	Remove the picture style	הסרת סגנון התמונה
+	Rename	שינוי שם
+	Rename Layout	שינוי שם פריסה
+	Rename Section	שינוי שם מקטע
+	Rename Section…	שינוי שם מקטע…
+	Rename Slide	שינוי שם שקופית
+	Render Slide	עיבוד שקופית
+	Reorder Animation	סידור מחדש של הנפשה
+	Reorder Objects	סידור מחדש של אובייקטים
+	Replace	החלפה
+	Replace Font	החלפת גופן
+	Replace Fonts	החלפת גופנים
+	Replace Fonts…	החלפת גופנים…
+	Replace fractions (1/2) with fraction characters (½)	החלפת שברים (1/2) בתווי שבר (½)
+	Replace straight quotes with smart quotes	החלפת מירכאות ישרות במירכאות חכמות
+	Replace text as you type	החלפת טקסט בזמן ההקלדה
+	Replace with:	החלפה ב:
+	Replace:	החלפה:
+	Replaced “{from}” with “{to}”.	“{from}” הוחלף ב-“{to}”.
+	“{from}” isn't used explicitly.	“{from}” אינו בשימוש מפורש.
+@plural	Replaced {n} occurrence.|Replaced {n} occurrences.	הוחלף מופע {n}.|הוחלפו {n} מופעים.
+	Replace…	החלפה…
+	Reply	תשובה
+	Reply…	תשובה…
+	Rescan Installed Fonts	סריקה מחדש של הגופנים המותקנים
+	Reset	איפוס
+	Reset Background	איפוס רקע
+	Reset Crop	איפוס חיתוך
+	Reset Effects	איפוס אפקטים
+	Reset Picture	איפוס תמונה
+	Reset Slide	איפוס שקופית
+	Reset Slide Background	איפוס רקע השקופית
+	Reset Style	איפוס סגנון
+	Reset to Defaults	איפוס לברירות המחדל
+	Resize shape to fit text	שינוי גודל הצורה להתאמה לטקסט
+	Resolve Thread	סגירת השרשור
+	Reuse Slides (Keep Source Formatting)…	שימוש חוזר בשקופיות (שמירת עיצוב המקור)…
+	Reuse Slides…	שימוש חוזר בשקופיות…
+	Reverse the order	היפוך הסדר
+	Revert	חזרה לגרסה השמורה
+	Review	סקירה
+	Revisions	שינויים
+	Rewind after Playing	החזרה להתחלה אחרי ההפעלה
+	Ribbon Tab	כרטיסיית רצועת כלים
+	Right	ימין
+	Right Border	גבול ימני
+	Right Tab	טאב ימני
+	Right-to-Left Text Direction	כיוון טקסט מימין לשמאל
+	Rotate	סיבוב
+	Rotate Left	סיבוב שמאלה
+	Rotate Left 90°	סיבוב שמאלה ב-90°
+	Rotate Right	סיבוב ימינה
+	Rotate Right 90°	סיבוב ימינה ב-90°
+	Rotate all text 270°	סיבוב כל הטקסט ב-270°
+	Rotate all text 90°	סיבוב כל הטקסט ב-90°
+	Rotate or Flip	סיבוב או היפוך
+	Rotate with shape	סיבוב עם הצורה
+	Rotation	סיבוב
+	Rotation (°):	סיבוב (°):
+	Round	מעוגל
+	Round Dot	נקודה עגולה
+	Rounded	מעוגל
+	Rows & Columns	שורות ועמודות
+	Ruler	סרגל
+	Sample deck: Northern Lights	מצגת לדוגמה: זוהר הקוטב
+	Saturation	רוויה
+	Saturation {pct}%	רוויה {pct}%
+	Save	שמירה
+	Save As	שמירה בשם
+	Save As…	שמירה בשם…
+	Save AutoRecover Information	שמירת מידע לשחזור אוטומטי
+	Save as Template…	שמירה כתבנית…
+	Save to Data	שמירה לנתונים
+	Saved	נשמר
+	Saving a copy needs a file picker, which this window doesn't have.	שמירת עותק דורשת בורר קבצים, שאין לחלון הזה.
+	Scale X	קנה מידה X
+	Scale Y	קנה מידה Y
+	Scale height	קנה מידה לגובה
+	Scale height (%):	קנה מידה לגובה (%):
+	Scale width	קנה מידה לרוחב
+	Scale width (%):	קנה מידה לרוחב (%):
+	ScreenTip:	תיאור מסך:
+	Screenshot	צילום מסך
+	Screenshot (not available yet)	צילום מסך (עדיין לא זמין)
+	Search commands (⇧⌘P)	חיפוש פקודות (⇧⌘P)
+	Search commands…	חיפוש פקודות…
+	Search for a file	חיפוש קובץ
+	Search for themes and templates	חיפוש ערכות נושא ותבניות
+	Search icons	חיפוש סמלים
+	Section	מקטע
+	Seek	דילוג
+	Select	בחירה
+	Select All	בחירת הכול
+	Select All Text	בחירת כל הטקסט
+	Select Cells	בחירת תאים
+	Select Objects	בחירת אובייקטים
+	Select Paragraph	בחירת פיסקה
+	Select Slides	בחירת שקופיות
+	Select Text	בחירת טקסט
+	Select Word	בחירת מילה
+	Select a SmartArt graphic to edit its text.	יש לבחור גרפיקת SmartArt כדי לערוך את הטקסט שלה.
+	Select a chart first.	תחילה יש לבחור תרשים.
+	Selection	בחירה
+	Selection\nPane	חלונית\nבחירה
+	Selection Pane	חלונית בחירה
+	Selection Pane…	חלונית בחירה…
+	Send\nBackward	העברה\nאחורה
+	Send Backward	העברה אחורה
+	Send to Back	העברה לרקע
+	Sentence case.	רישיות של משפט.
+	Set	הגדרה
+	Set Text	הגדרת טקסט
+	Set Transparent Color	הגדרת צבע שקוף
+	Set Transparent Color: click the colour in the picture (Esc cancels)	הגדרת צבע שקוף: לחיצה על הצבע בתמונה (Esc מבטל)
+	Set Up	הגדרה
+	Set Up\nSlide Show	הגדרת\nמצגת שקופיות
+	Set Up Show…	הגדרת מצגת…
+	Set Up Slide Show	הגדרת מצגת שקופיות
+	Set Up Slide Show…	הגדרת מצגת שקופיות…
+	Set Zoom	הגדרת זום
+	Set as Default Shape	הגדרה כצורת ברירת מחדל
+	Settings	הגדרות
+	Shading	הצללה
+	Shadow	צל
+	Shape\nStyles	סגנונות\nצורה
+	Shape Effects	אפקטים של צורה
+	Shape Fill	מילוי צורה
+	Shape Format	עיצוב צורה
+	Shape Gallery	גלריית צורות
+	Shape Outline	קו מיתאר של צורה
+	Shape Styles	סגנונות צורה
+	Shapes	צורות
+	Show	הצגה
+	Show\nComments	הצגת\nהערות
+	Show All	הצגת הכול
+	Show Media Controls	הצגת פקדי מדיה
+	Show smart guides	הצגת קווים מנחים חכמים
+	Show type	סוג המצגת
+	Show without animation	הצגה ללא הנפשה
+	Show without narration	הצגה ללא קריינות
+	Show/Hide	הצגה/הסתרה
+	Shrink text on overflow	כיווץ טקסט בגלישה
+	Simple, white	פשוט, לבן
+	Single	יחיד
+	Size	גודל
+	Size (% of text):	גודל (% מהטקסט):
+	Size and Position	גודל ומיקום
+	Size and Position…	גודל ומיקום…
+	Slide\nMaster	תבנית בסיס\nלשקופיות
+	Slide\nNumber	מספר\nשקופית
+	Slide\nSize	גודל\nשקופית
+	Slide Image	תמונת שקופית
+	Slide Master	תבנית בסיס לשקופיות
+	Slide Number	מספר שקופית
+	Slide Show	מצגת שקופיות
+	Slide Size	גודל שקופית
+	Slide Sorter	ממיין שקופיות
+	Slide number	מספר שקופית
+	Slide timings recorded.	תזמוני השקופיות נרשמו.
+	Slide {n}	שקופית {n}
+	Slide {n} of {total}	שקופית {n} מתוך {total}
+	Slide {n} changed	שקופית {n} השתנתה
+	Slide {n} deleted	שקופית {n} נמחקה
+	Slide {n}: “{word}”	שקופית {n}: “{word}”
+	Slides	שקופיות
+	Slides (e.g. 1,3,5):	שקופיות (למשל 1,3,5):
+	Slides From	שקופיות מתוך
+	Slides Per\nPage: {n}	שקופיות\nבעמוד: {n}
+	Slides from Outline	שקופיות מחלוקה לרמות
+	Slides from Outline…	שקופיות מחלוקה לרמות…
+	Slides sized for:	גודל שקופיות עבור:
+	Slides:	שקופיות:
+	Slide…	שקופית…
+	Small	קטן
+	Small (640 px wide)	קטן (רוחב 640 פיקסלים)
+	Small caps	אותיות רישיות קטנות
+	SmartArt	SmartArt
+	SmartArt Design	עיצוב SmartArt
+	SmartArt Styles	סגנונות SmartArt
+	Smooth Corners	פינות חלקות
+	Smooth Point	נקודה חלקה
+	Snap objects to grid	הצמדת אובייקטים לרשת
+	Snap objects to other objects	הצמדת אובייקטים לאובייקטים אחרים
+	Soft Edges	קצוות רכים
+	Solid	רציף
+	Solid fill	מילוי אחיד
+	Sort	מיון
+	Sound	צליל
+	Sound:	צליל:
+	Source on GitHub	קוד המקור ב-GitHub
+	Space	רווח
+	Spacing (pt):	ריווח (נק'):
+	Spacing after	ריווח אחרי
+	Spacing after must be a number	הריווח אחרי חייב להיות מספר
+	Spacing before	ריווח לפני
+	Spacing before must be a number	הריווח לפני חייב להיות מספר
+	Special indent must be a number of inches	הכניסה המיוחדת חייבת להיות מספר אינצ'ים
+	Spelling	איות
+	Spelling Dictionary	מילון איות
+	Split\nCells	פיצול\nתאים
+	Split Cells	פיצול תאים
+	Square	ריבוע
+	Square Dot	נקודה מרובעת
+	Stacked	מוערם
+	Standard (4:3)	רגיל (4:3)
+	Start After Previous	התחלה אחרי הקודם
+	Start Automatically	התחלה אוטומטית
+	Start On Click	התחלה בלחיצה
+	Start Slide Show	התחלת מצגת שקופיות
+	Start With Previous	התחלה עם הקודם
+	Start a conversation	התחלת שיחה
+	Start at:	התחלה ב:
+	Start from Beginning	התחלה מההתחלה
+	Start time (s):	זמן התחלה (שנ'):
+	Start:	התחלה:
+	Starter Templates	תבניות התחלה
+	Stealth	חץ חד
+	Stealth end	סיום בחץ חד
+	Stop	עצירה
+	Stop Editing Text	סיום עריכת טקסט
+	Stopped opening {name}	פתיחת {name} הופסקה
+	Straight Point	נקודה ישרה
+	Strikethrough	קו חוצה
+	Subscript	כתב תחתי
+	Superscript	כתב עילי
+	Swedish	שוודית
+	Symbol	סמל
+	Symbols	סמלים
+	Tab	Tab
+	Tab stop position (in):	מיקום עצירת טאב (אינץ'):
+	Tab stops:	עצירות טאב:
+	Table	טבלה
+	Table Design	עיצוב טבלה
+	Table Eraser	מחק טבלה
+	Table Layout	פריסת טבלה
+	Table Style Options	אפשרויות סגנון טבלה
+	Table Styles	סגנונות טבלה
+	Tables	טבלאות
+	Table…	טבלה…
+	Tabs	טאבים
+	Tabs…	טאבים…
+	Task Pane	חלונית משימות
+	Templates	תבניות
+	Text	טקסט
+	Text\nBox	תיבת\nטקסט
+	Text\nPane	חלונית\nטקסט
+	Text Box	תיבת טקסט
+	Text Box Margins	שולי תיבת טקסט
+	Text Direction	כיוון טקסט
+	Text Effects	אפקטים של טקסט
+	Text Fill	מילוי טקסט
+	Text Highlight Color	צבע הדגשת טקסט
+	Text Outline	קו מיתאר של טקסט
+	Text Pane	חלונית טקסט
+	Text Shadow	צל טקסט
+	Text Transform	טרנספורמציית טקסט
+	Text Transparency	שקיפות טקסט
+	Text box:	תיבת טקסט:
+	Text is longer than 400 characters	הטקסט ארוך מ-400 תווים
+	That file is empty	הקובץ הזה ריק
+	That picture is larger than 32 MB	התמונה הזו גדולה מ-32 MB
+	The picture list is invalid	רשימת התמונות אינה תקינה
+	The spelling check is complete. No issues found.	בדיקת האיות הושלמה. לא נמצאו בעיות.
+	The version, the people and models who built it, and where to find us.	הגרסה, האנשים והמודלים שבנו אותה, ואיפה למצוא אותנו.
+	The web build inserts album pictures from data passed to insert.photoAlbum	גרסת הדפדפן מוסיפה תמונות לאלבום מנתונים שמועברים אל insert.photoAlbum
+	Theme Gallery	גלריית ערכות נושא
+	Themes	ערכות נושא
+	There are no unsaved changes.	אין שינויים שלא נשמרו.
+	There are no unsaved presentations to recover	אין מצגות שלא נשמרו לשחזור
+	Thesaurus	אוצר מילים
+	Thick Thin	עבה דק
+	Thin Thick	דק עבה
+	This Document	המסמך הזה
+	This presentation has never been saved.	המצגת הזו מעולם לא נשמרה.
+	This presentation has no custom shows (Slide Show ▸ Custom Slide Show).	למצגת הזו אין מצגות מותאמות אישית (מצגת שקופיות ▸ מצגת שקופיות מותאמת אישית).
+	This presentation has unsaved changes. Revert goes back to the saved file.	במצגת הזו יש שינויים שלא נשמרו. חזרה לגרסה השמורה מחזירה לקובץ השמור.
+	This slide has no animations	לשקופית הזו אין הנפשות
+	Tight	הדוק
+	Tile picture as texture	פריסת התמונה כמרקם
+	Timing	תזמון
+	Title	כותרת
+	Tools	כלים
+	Top	עליון
+	Top Border	גבול עליון
+	Top Left	שמאל למעלה
+	Top Right	ימין למעלה
+	Top bevel	שיפוע עליון
+	Top left	שמאל למעלה
+	Top right	ימין למעלה
+	Total Row	שורת סיכום
+	Transition	מעבר
+	Transition Gallery	גלריית מעברים
+	Transition to This Slide	מעבר לשקופית זו
+	Transitions	מעברים
+	Translate	תרגום
+	Translation needs a language model (not bundled)	תרגום דורש מודל שפה (לא מצורף)
+	Transparency	שקיפות
+	Transparent background	רקע שקוף
+	Transform	טרנספורמציה
+	Trigger	גורם מפעיל
+	Trim	חיתוך
+	Trim Media	חיתוך מדיה
+	Triple	משולש
+	Type	סוג
+	Type Text	הקלדת טקסט
+	Type an equation in linear form (e.g. a^2+b^2=c^2, x=(-b±√(b^2-4ac))/2a).	הקלדת משוואה בצורה ליניארית (למשל a^2+b^2=c^2, x=(-b±√(b^2-4ac))/2a).
+	Type and organise the diagram's text	הקלדה וארגון של טקסט התרשים
+	Type the text for the new text box	הקלדת הטקסט לתיבת הטקסט החדשה
+	Underline	קו תחתון
+	Undo	בטל
+	Ungroup	פירוק קבוצה
+	Up	למעלה
+	Update automatically	עדכון אוטומטי
+	Use Destination Theme	שימוש בערכת הנושא של היעד
+	Use Timings	שימוש בתזמונים
+	Use timings, if present	שימוש בתזמונים, אם קיימים
+	User Information	פרטי משתמש
+	Username	שם משתמש
+	Variant Gallery	גלריית גרסאות
+	Variants	גרסאות
+	Version {version}	גרסה {version}
+	Vertical	אנכי
+	Vertical (in):	אנכי (אינץ'):
+	Vertical alignment	יישור אנכי
+	Very Loose	רופף מאוד
+	Very Tight	הדוק מאוד
+	Very loose	רופף מאוד
+	Very tight	הדוק מאוד
+	Video	וידאו
+	Video Format	עיצוב וידאו
+	Video from File…	וידאו מקובץ…
+	View	תצוגה
+	Volume	עוצמת קול
+	Warp	עיוות
+	Wavy	גלי
+	Web Page or File	דף אינטרנט או קובץ
+	Weight	עובי
+	Wide	רחב
+	Widescreen (16:9)	מסך רחב (16:9)
+	Width	רוחב
+	Width (in):	רוחב (אינץ'):
+	Width:	רוחב:
+	Width: 	רוחב: 
+	Window	חלון
+	With	עם
+	With Previous	עם הקודם
+	With:	עם:
+	WordArt	WordArt
+	WordArt Styles	סגנונות WordArt
+	Wrap Text in Shape	גלישת טקסט בצורה
+	Wrap text in shape	גלישת טקסט בצורה
+	Your changes will be lost if you don't save them.	השינויים שלך יאבדו אם לא תשמרו אותם.
+	Your name (comments):	השם שלך (הערות):
+	Zoom	זום
+	Zoom In	הגדלה
+	Zoom Out	הקטנה
+	Zoom to	זום אל
+	Zoom…	זום…
+	[No Sound]	[ללא צליל]
+	[Stop Previous Sound]	[עצירת הצליל הקודם]
+	e.g. 1-3, 5	למשל 1-3, 5
+	in	אינץ'
+	pt	נק'
+	size (pt)	גודל (נק')
+	{cols}x{rows} Table	טבלה {cols}x{rows}
+	Subtle	עדין
+	Exciting	מרגש
+	Dynamic Content	תוכן דינמי
+	Sentence case	רישיות של משפט
+	Lower case	אותיות קטנות
+	Upper case	אותיות רישיות
+	Toggle case	היפוך רישיות
+	Dansk	Dansk
+	Deutsch (Deutschland)	Deutsch (Deutschland)
+	Deutsch (Schweiz)	Deutsch (Schweiz)
+	English (Australia)	English (Australia)
+	English (Canada)	English (Canada)
+	English (United Kingdom)	English (United Kingdom)
+	English (United States)	English (United States)
+	Español (España)	Español (España)
+	Español (México)	Español (México)
+	Français (Canada)	Français (Canada)
+	Français (France)	Français (France)
+	French (France)	צרפתית (צרפת)
+	Italiano	Italiano
+	Nederlands	Nederlands
+	Norsk bokmål	Norsk bokmål
+	Polski	Polski
+	Português (Brasil)	Português (Brasil)
+	Português (Portugal)	Português (Portugal)
+	Suomi	Suomi
+	Svenska	Svenska
+	Türkçe	Türkçe
+	  Present  	  הצגה  
+	(no spelling suggestions)	(אין הצעות איות)
+	3-D Format	עיצוב תלת-ממד
+	3-D Rotation	סיבוב תלת-ממד
+	AaBbCcDd	אבגד AaBb
+	Add	הוספה
+	Add a title with a picture or some text to get layout ideas.	הוספת כותרת עם תמונה או טקסט תניב רעיונות לפריסה.
+	Angle	זווית
+	Applies to this presentation's theme colours.	חל על צבעי ערכת הנושא של המצגת הזו.
+	Baseline	קו בסיס
+	Body:	גוף:
+	Change to:	שינוי ל:
+	Color:	צבע:
+	Compare this presentation with a revised copy from Review › Compare.	השוואת המצגת הזו לעותק מתוקן דרך סקירה › השוואה.
+	Direction	כיוון
+	Display	תצוגה
+	Don't Save	לא לשמור
+	Fill	מילוי
+	Find Next	חיפוש הבא
+	Find what:	חיפוש:
+	General	כללי
+	Heading and body fonts for this presentation.	גופני כותרות וגוף למצגת הזו.
+	Heading:	כותרת:
+	Indentation	כניסה
+	Line	קו
+	Line spacing	ריווח שורות
+	MIT OR Apache-2.0 · © 2026 ArtCraft Team and the DeckCraft contributors	MIT או Apache-2.0 · © 2026 צוות ArtCraft ותורמי DeckCraft
+	Mirror	שיקוף
+	Month names and AM/PM are listed for English. Other languages list the numeric date and 24-hour time.	שמות חודשים ו-AM/PM מופיעים באנגלית. שפות אחרות מציגות תאריך מספרי ושעה בתבנית 24 שעות.
+	No comments.	אין הערות.
+	No notes.	אין הערות דובר.
+	No pictures yet	עדיין אין תמונות
+	Not a copy of this presentation: slides are matched by position.	לא עותק של המצגת הזו: השקופיות מותאמות לפי מיקום.
+	Pick a design for this slide. Ideas are generated on your device.	בחירת עיצוב לשקופית הזו. הרעיונות נוצרים במכשיר שלך.
+	Position	מיקום
+	Previous	הקודם
+	Remove stop	הסרת נקודת עצירה
+	Repeated word	מילה כפולה
+	Replace All	החלפת הכול
+	Reset 3-D	איפוס תלת-ממד
+	Right-click any ribbon button to add it.	לחיצה ימנית על כל לחצן ברצועת הכלים מוסיפה אותו.
+	Select a shape to format it.	יש לבחור צורה כדי לעצב אותה.
+	Select an object on the slide and add an animation from the Animations tab.	יש לבחור אובייקט בשקופית ולהוסיף הנפשה מהכרטיסייה 'הנפשות'.
+	Snap	הצמדה
+	Spacing	ריווח
+	Special	מיוחד
+	Spelling is checked for languages marked (dictionary).	האיות נבדק בשפות המסומנות (מילון).
+	Standard Colors	צבעים סטנדרטיים
+	Theme Colors	צבעי ערכת נושא
+	Themes (whole presentation)	ערכות נושא (כל המצגת)
+	Type your text here	הקלידו את הטקסט כאן

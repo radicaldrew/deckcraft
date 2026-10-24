@@ -90,7 +90,7 @@ From the local execution plan (`plan/execution-plan.md`, gitignored). Status as 
 | M11 | Output | partly | vector PDF, SVG, GIF, MP4, print |
 | M12 | Review | partly | dictionaries, AutoCorrect, find/replace dialog, compare |
 | M13 | Automation and CLI parity | done | |
-| M14 | 1.0 polish and release | partly | i18n, native menu bar, signed releases done (v0.4.0) |
+| M14 | 1.0 polish and release | partly | i18n catalog and Hebrew done (2026-10-25); more languages, RTL mirroring, native menu bar, signed releases done (v0.4.0) |
 
 ## History: the 2026-10-07 alpha checklist
 

@@ -2,7 +2,8 @@
 //! `docs/integration.md`). With `CRAFT_FONTS_DIR=<checkout>` the fonts in its
 //! `fonts/latin-manifest.txt` (presentation fonts) and `fonts/manifest.txt` are embedded as
 //! `CRAFT_FONTS`, Latin first; unset, `CRAFT_FONTS` is empty. Web (wasm32) builds embed only Inter
-//! Regular/Bold and BIZ UDPGothic Regular, to stay within the web size budget. It only reads the
+//! Regular/Bold, BIZ UDPGothic Regular and Noto Sans Hebrew (110 KB, so Hebrew slides and the
+//! Hebrew interface draw in the browser, #81), to stay within the web size budget. It only reads the
 //! local checkout: no network.
 use std::fmt::Write as _;
 use std::path::PathBuf;
@@ -57,7 +58,7 @@ fn manifest(dir: &std::path::Path, manifest: &std::path::Path) -> Result<String,
         if EXCLUDED_FAMILIES.contains(family) {
             continue;
         }
-        if wasm && !matches!((*family, *style), ("BIZ UDPGothic", "Regular") | ("Inter", "Regular" | "Bold" | "Variable")) {
+        if wasm && !matches!((*family, *style), ("BIZ UDPGothic", "Regular") | ("Inter", "Regular" | "Bold" | "Variable") | ("Noto Sans Hebrew", _)) {
             continue;
         }
         let path = dir.join(file).canonicalize().map_err(|e| format!("{file}: {e}"))?;

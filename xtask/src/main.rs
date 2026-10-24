@@ -31,6 +31,8 @@ commands:
                   time open, render, save and export of the sample (and DECKs) in release, and
                   compare with docs/benchmarks/baseline.json (--save writes it)
   parity          recompute the PowerPoint feature-parity summary in docs/parity-checklist.md
+  i18n-report     the interface strings each language has no translation for (never fails;
+                  DECKCRAFT_I18N_DUMP=<file> also writes every English key for translators)
   ico <out.ico> <in.png>...
                   pack square PNGs (<= 256 px) into a Windows .ico (see packaging/icons.sh)
 ";
@@ -47,6 +49,7 @@ fn main() -> ExitCode {
         Some("ci") => cmd_ci(),
         Some("stats") => stats::run(&root(), rest.contains(&"--exact")),
         Some("parity") => parity::run(&root()),
+        Some("i18n-report") => cmd_i18n_report(),
         Some("bench") => bench::run(&root(), &rest),
         Some("ico") => ico::run(&rest),
         Some("version") => version::run(&root(), &rest),
@@ -186,6 +189,34 @@ fn cmd_doctest() -> Result<(), String> {
     run(c, "cargo test --workspace --doc")
 }
 
+/// The translation gaps per interface language, as the `translation_gaps_report` test prints
+/// them. A missing translation shows in English, so this reports and never fails; the Hebrew
+/// coverage test (`hebrew_covers_every_known_string`) is what fails `cargo xtask test`.
+fn cmd_i18n_report() -> Result<(), String> {
+    const TEST: &str = "i18n::tests::translation_gaps_report";
+    const START: &str = "=== translation gaps ===";
+    const END: &str = "=== end of translation gaps ===";
+    let mut c = cargo();
+    c.args(["test", "-p", "deckcraft-ui-egui", "--lib", "--quiet", "--", TEST, "--exact", "--nocapture"]).stderr(Stdio::inherit());
+    eprintln!("$ cargo test -p deckcraft-ui-egui --lib --quiet -- {TEST} --exact --nocapture");
+    let out = match c.output() {
+        Ok(out) => out,
+        Err(e) => {
+            println!("i18n-report: no report, cargo test did not start: {e}");
+            return Ok(());
+        }
+    };
+    let stdout = String::from_utf8_lossy(&out.stdout);
+    let report: Vec<&str> = stdout.lines().skip_while(|l| *l != START).skip(1).take_while(|l| *l != END).collect();
+    if report.is_empty() {
+        println!("i18n-report: no report (cargo test exited with {})", out.status);
+    }
+    for line in report {
+        println!("{line}");
+    }
+    Ok(())
+}
+
 fn cmd_ci() -> Result<(), String> {
     type Step = (&'static str, Box<dyn Fn() -> Result<(), String>>);
     let steps: Vec<Step> = vec![
@@ -208,6 +239,7 @@ fn cmd_ci() -> Result<(), String> {
         ),
         ("test", Box::new(cmd_test)),
         ("doctest", Box::new(cmd_doctest)),
+        ("i18n-report", Box::new(cmd_i18n_report)),
         ("assets", Box::new(|| assets::run(&root()))),
         ("layers", Box::new(cmd_layers)),
         ("wasm", Box::new(cmd_wasm)),

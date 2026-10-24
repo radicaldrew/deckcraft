@@ -22,6 +22,13 @@ egui = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 log = { workspace = true }
+# Display order for the labels of a right-to-left interface language (egui shapes but does not
+# reorder); already in the tree through deckcraft-text.
+unicode-bidi = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+# Auto interface language: the Windows display language, without starting a process.
+sys-locale = "0.3"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 js-sys = "0.3"

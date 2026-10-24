@@ -153,7 +153,8 @@ pub fn apply(ctx: &egui::Context, t: &Tokens) {
     });
 }
 
-/// UI fonts: Inter (from craft-fonts) when embedded, a Japanese UI face for CJK, then egui's.
+/// UI fonts: Inter (from craft-fonts) when embedded, a Japanese UI face for CJK, the Arabic and
+/// Hebrew faces for a right-to-left interface language, then egui's.
 pub fn install_fonts(ctx: &egui::Context) {
     install_fonts_with(ctx, &[]);
 }
@@ -172,7 +173,8 @@ pub fn font_definitions(extra: &[std::sync::Arc<deckcraft_fonts::FontFace>]) -> 
     for (i, f) in deckcraft_fonts::CRAFT_FONTS.iter().enumerate() {
         let wanted = (f.family == "Inter" && (f.style == "Regular" || f.style == "SemiBold" || f.style == "Bold"))
             || (f.family == "BIZ UDPGothic" && f.style == "Regular")
-            || (f.family == "Noto Sans Arabic");
+            || (f.family == "Noto Sans Arabic")
+            || (f.family == "Noto Sans Hebrew");
         if !wanted {
             continue;
         }

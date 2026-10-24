@@ -6,8 +6,17 @@
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 #![forbid(unsafe_code)]
 
+/// An English interface string in the current interface language (see [`i18n`]). The literal
+/// is the catalog key; `cargo xtask i18n-report` lists the ones no catalog translates.
+macro_rules! tl {
+    ($s:expr) => {
+        $crate::i18n::t($s)
+    };
+}
+
 pub mod animtimeline;
 pub mod backstage;
+pub mod bidi;
 pub mod canvas;
 pub mod control;
 pub mod credits;
@@ -15,6 +24,7 @@ pub mod dialogs;
 pub mod doc_window;
 pub mod eyedropper;
 pub mod fillui;
+pub mod i18n;
 pub mod icons;
 pub mod media;
 pub mod menus;
@@ -274,6 +284,8 @@ pub struct UiState {
     pub comment_focus: Option<(usize, usize)>,
     /// Quick Access Toolbar buttons, left to right.
     pub qat: Vec<qat::QatItem>,
+    /// Interface language: [`i18n::AUTO`] (follow the system) or a code from [`i18n::LANGUAGES`].
+    pub language: String,
 }
 
 impl Default for UiState {
@@ -305,6 +317,7 @@ impl Default for UiState {
             grayscale: false,
             comment_focus: None,
             qat: qat::defaults(),
+            language: i18n::AUTO.into(),
         }
     }
 }
@@ -333,6 +346,8 @@ impl UiState {
         let within = |v: f32, lo: f32, hi: f32, default: f32| if v.is_finite() { v.clamp(lo, hi) } else { default };
         self.zoom = self.zoom.filter(|z| z.is_finite() && *z > 0.0).map(|z| z.clamp(*ZOOM_RANGE.start(), *ZOOM_RANGE.end()));
         self.sorter_zoom = within(self.sorter_zoom, 0.5, 3.0, d.sorter_zoom);
+        // A code from a newer version, or a hand edit, means Auto rather than a stuck setting.
+        self.language = i18n::normalize_pref(&self.language).unwrap_or(i18n::AUTO).to_string();
         self.ui_scale = within(self.ui_scale, 0.5, 3.0, d.ui_scale);
         self.notes_height = within(self.notes_height, 0.0, 2000.0, d.notes_height);
         self.thumbs_width = within(self.thumbs_width, 60.0, 1000.0, d.thumbs_width);
@@ -395,6 +410,7 @@ pub const UI_COMMANDS: &[(&str, &str, Option<&str>, &str)] = &[
     ("app.about", "About DeckCraft", None, "{}"),
     ("app.palette", "Command Palette", Some("Cmd+Shift+P"), "{}"),
     ("app.preferences", "Preferences…", Some("Cmd+,"), "{}"),
+    ("app.language", "Interface Language", None, "{language?: code|auto} → {language, shown, languages}"),
     ("app.openDialog", "Open…", None, "{purpose?}"),
     ("app.insertPictureDialog", "Picture from File…", None, "{}"),
     ("app.smartArtPictureDialog", "Insert Picture in SmartArt…", None, "{id?, index}"),
@@ -498,6 +514,8 @@ pub struct SlideApp {
     pub(crate) notes_buf: (u64, usize, notes::Draft),
     /// Faces borrowed from the font database for text the interface fonts can't draw (#101).
     pub ui_fonts: uifonts::UiFonts,
+    /// The interface language whose characters [`Self::ui_fonts`] last looked at.
+    lang_noted: Option<&'static str>,
     /// Thumbnail pane drag (slide index, current drop index).
     pub(crate) thumb_drag: Option<(usize, usize)>,
     /// Selection pane: folded groups, renaming, drag and drop.
@@ -580,6 +598,7 @@ impl SlideApp {
             quit_confirmed: false,
             notes_buf: (0, usize::MAX, notes::Draft::default()),
             ui_fonts: uifonts::UiFonts::default(),
+            lang_noted: None,
             thumb_drag: None,
             selpane: selpane::State::default(),
             align_to: None,
@@ -806,7 +825,7 @@ impl SlideApp {
                 false
             }
             (Ok(_), None) => {
-                self.set_status("Saving a copy needs a file picker, which this window doesn't have.");
+                self.set_status(tl!("Saving a copy needs a file picker, which this window doesn't have."));
                 false
             }
         }
@@ -832,7 +851,7 @@ impl SlideApp {
         match self.run("file.export", params) {
             Ok(_) => {
                 self.open_url(&format!("file:///{}", path.replace('\\', "/").trim_start_matches('/')));
-                self.set_status("Opened the presentation as a PDF to print");
+                self.set_status(tl!("Opened the presentation as a PDF to print"));
                 true
             }
             Err(_) => false,
@@ -1014,6 +1033,19 @@ impl SlideApp {
             "app.about" => self.dialog = Some(dialogs::Dialog::new("about")),
             "app.palette" => self.palette = Some((String::new(), 0)),
             "app.preferences" => self.dialog = Some(dialogs::Dialog::new("preferences")),
+            "app.language" => {
+                if let Some(wanted) = p.get("language").and_then(Value::as_str) {
+                    let Some(code) = i18n::normalize_pref(wanted) else {
+                        let known: Vec<&str> = std::iter::once(i18n::AUTO).chain(i18n::Lang::all().map(i18n::Lang::code)).collect();
+                        return Err(format!("unknown interface language `{wanted}`; one of {}", known.join(", ")));
+                    };
+                    self.ui.language = code.to_string();
+                    i18n::set_current(i18n::Lang::from_pref(&self.ui.language));
+                }
+                let languages: Vec<Value> =
+                    i18n::Lang::for_picker().iter().map(|l| json!({"code": l.code(), "name": l.name(), "rtl": l.rtl()})).collect();
+                return Ok(json!({"language": self.ui.language, "shown": i18n::Lang::from_pref(&self.ui.language).code(), "languages": languages}));
+            }
             "app.openDialog" => self.pick_and_open(),
             "app.insertPictureDialog" => self.pick_and_insert("picture", "insert.picture"),
             "app.smartArtPictureDialog" => {
@@ -1183,7 +1215,7 @@ impl SlideApp {
         };
         if timeline.is_empty() {
             self.anim_preview = None;
-            self.set_status("This slide has no animations");
+            self.set_status(tl!("This slide has no animations"));
             return Ok(json!({"playing": false}));
         }
         let from_secs = match from {
@@ -1196,7 +1228,7 @@ impl SlideApp {
         self.close_backstage();
         let duration = timeline.total_duration();
         self.anim_preview = Some(AnimPreview { uid, slide, slide_ptr: ptr, started: None, from: from_secs, elapsed: from_secs, timeline });
-        self.set_status("Previewing animations");
+        self.set_status(tl!("Previewing animations"));
         Ok(json!({"playing": true, "slide": slide, "duration": duration, "from": from_secs}))
     }
 
@@ -1265,7 +1297,7 @@ impl SlideApp {
         };
         let Some(path) = pick("open") else { return };
         match self.session.execute("slide.reuse", &json!({"path": path, "keepFormatting": keep})) {
-            Ok(r) => self.set_status(format!("Inserted {} slides from {path}", r["slides"])),
+            Ok(r) => self.set_status(i18n::fmt(tl!("Inserted {n} slides from {path}"), &[("n", &r["slides"].to_string()), ("path", &path)])),
             Err(e) => self.set_status(e.to_string()),
         }
     }
@@ -1351,7 +1383,7 @@ impl SlideApp {
     pub fn save(&mut self) {
         if self.session.active().and_then(|d| d.path.clone()).is_some() {
             match self.session.execute("file.save", &json!({})) {
-                Ok(_) => self.set_status("Saved"),
+                Ok(_) => self.set_status(tl!("Saved")),
                 Err(e) => self.set_status(e.to_string()),
             }
         } else {
@@ -1570,6 +1602,17 @@ impl SlideApp {
 
     /// Per-frame logic before layout: styles, control requests, screenshots, shortcuts.
     pub fn logic(&mut self, ctx: &egui::Context) {
+        // The interface language for this frame's drawing; a catalog's own characters (Hebrew
+        // letters) borrow an interface face when no embedded one has them (#101).
+        let lang = i18n::Lang::from_pref(&self.ui.language);
+        i18n::set_current(lang);
+        if self.fonts_ready && self.lang_noted != Some(lang.code()) {
+            self.lang_noted = Some(lang.code());
+            if lang != i18n::Lang::EN {
+                let sample = lang.glyph_sample();
+                self.ui_fonts.note(ctx, &sample);
+            }
+        }
         let scale = self.ui.ui_scale.clamp(0.5, 3.0);
         if (ctx.zoom_factor() - scale).abs() > 1e-3 {
             ctx.set_zoom_factor(scale);
@@ -2106,6 +2149,9 @@ mod datetime_tests;
 
 #[cfg(test)]
 mod inbox_tests;
+
+#[cfg(test)]
+mod language_tests;
 
 #[cfg(test)]
 mod tests {

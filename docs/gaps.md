@@ -1,6 +1,6 @@
 # Where DeckCraft falls short of PowerPoint
 
-> **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-22 · **Change:** minor (Animation Pane ▸ Play From; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: soak tests, PPTX corpus, comment threads (#70), embedded fonts, SmartArt Text Pane, Animation Pane timeline, Hunspell spelling, thesaurus, AutoCorrect, 14 new dialogs, pen pressure and trackpad gestures; duplicated entries and headers folded; previous: minor, 3-D bevel, camera and face lighting rendered) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
+> **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-25 · **Change:** minor (localization: the catalog exists and Hebrew is in, so the entry is now about more languages, RTL mirroring and the engine's English sentences; previous: minor, Animation Pane ▸ Play From; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: soak tests, PPTX corpus, comment threads (#70), embedded fonts, SmartArt Text Pane, Animation Pane timeline, Hunspell spelling, thesaurus, AutoCorrect, 14 new dialogs, pen pressure and trackpad gestures; duplicated entries and headers folded; previous: minor, 3-D bevel, camera and face lighting rendered) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
 > **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-20 · **Change:** trivial (empty chart number-format sections hide values; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: soak tests, PPTX corpus, comment threads (#70), embedded fonts, SmartArt Text Pane, Animation Pane timeline, Hunspell spelling, thesaurus, AutoCorrect, 14 new dialogs, pen pressure and trackpad gestures; duplicated entries and headers folded; previous: minor, 3-D bevel, camera and face lighting rendered) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
 
 Every known shortfall, one entry each, ranked by how much it stops someone who presents with
@@ -321,15 +321,25 @@ Detail in [hardware-parity.md](hardware-parity.md).
 
 Detail in [localization-parity.md](localization-parity.md).
 
-- **English only, no string catalog** (#15, #30; Ukrainian PR #34 open). PowerPoint for Mac ships
-  26 languages. Infrastructure 8–14 h, then 3–16 h per language plus native review. Beta needs the
-  infrastructure and at least Simplified Chinese, Spanish, French, German and Japanese (~30–45 h).
+- **Two interface languages, English and Hebrew** (#30; Ukrainian PR #34 open). The catalog exists
+  (`crates/ui-egui/src/i18n`, one `xx.tsv` and one registry row per language); PowerPoint for Mac
+  ships 26 languages. 3–7 h per language plus native review. Beta needs at least Simplified Chinese,
+  Spanish, French, German and Japanese (~20–30 h).
+- **The engine's own sentences are English in every language.** Command errors, disabled reasons,
+  history labels ("Undo Typing" translates by its parts, the rest doesn't) and status messages
+  from `crates/engine` reach the UI as text. Routing them through wordings with holes, as
+  PdfCraft does: 4–6 h.
+- **Hebrew has no native-speaker review** (AI-assisted, clean-room). 2 h.
 - **Hangul in the interface needs an installed Korean font** (#101). craft-fonts has no Korean face
   (Noto CJK is excluded by the asset policy), so the web build draws Korean file names, notes and
   outline text as boxes; desktop borrows Malgun Gothic, Apple SD Gothic Neo or Noto Sans CJK.
   Adding an openly licensed Korean face (e.g. Nanum Gothic, OFL) to craft-fonts: 1–2 h.
-- **UI isn't mirrored for right-to-left languages.** 6–10 h.
-- **Browser build draws Arabic and Hebrew as missing-glyph boxes in exports** (#81). 1–2 h.
+- **UI isn't mirrored for right-to-left languages.** Hebrew labels read right to left inside a
+  left-to-right ribbon, panes and dialogs (the same stage PdfCraft's Arabic and Hebrew are at), and
+  a label egui wraps breaks at the wrong end. 6–10 h.
+- **Browser build draws Arabic as missing-glyph boxes in exports** (#81). Hebrew is fixed (Noto
+  Sans Hebrew, 110 KB, is embedded); Noto Sans Arabic is 845 KB, over the web size budget, so a
+  subset or a lighter face is needed. 1–2 h.
 
 ## Performance
 

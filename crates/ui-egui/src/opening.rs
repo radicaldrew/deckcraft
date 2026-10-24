@@ -57,7 +57,7 @@ impl SlideApp {
     /// Stop waiting for the file being opened; the presentation stays as it is.
     pub fn cancel_opening(&mut self) {
         if let Some(o) = self.opening.take() {
-            self.set_status(format!("Stopped opening {}", o.name()));
+            self.set_status(crate::i18n::fmt(tl!("Stopped opening {name}"), &[("name", &o.name())]));
         }
     }
 
@@ -100,7 +100,7 @@ impl SlideApp {
             ui.weak(format!("Reading the file: {secs:.0} s"));
             ui.add_space(6.0);
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                cancel = ui.button("Cancel").clicked();
+                cancel = ui.button(tl!("Cancel")).clicked();
             });
         });
         if cancel || ctx.input_mut(|i| i.consume_key(egui::Modifiers::NONE, egui::Key::Escape)) {

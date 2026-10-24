@@ -2,7 +2,7 @@
 
 **Stage: alpha** · next: beta, ~20 points and ~120–210 h away
 
-> **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-23 · **Change:** trivial (progress log: scroll bars on the zoomed slide pane, #1157; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: ~60 landed items in the progress log, among them the Font, Paragraph, Photo Album, theme colour and font and Date and Time dialogs, presenter and show controls, the SmartArt Text Pane and PPTX corpus slices; breadth 84% after `cargo xtask parity`, ready stays ~55%, stage stays alpha; duplicated rows and headers folded; previous: minor, hours to ~95% per audience added) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
+> **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-25 · **Change:** minor (localization: string catalog and a Hebrew interface, Localization 8 → ~15%, first non-English language; previous: trivial, progress log: scroll bars on the zoomed slide pane, #1157; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: ~60 landed items in the progress log, among them the Font, Paragraph, Photo Album, theme colour and font and Date and Time dialogs, presenter and show controls, the SmartArt Text Pane and PPTX corpus slices; breadth 84% after `cargo xtask parity`, ready stays ~55%, stage stays alpha; duplicated rows and headers folded; previous: minor, hours to ~95% per audience added) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
 > **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-22 · **Change:** trivial (fill and outline edits reach group members, #1079; stage and scores unchanged) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
 > **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-20 · **Change:** trivial (empty chart number-format sections hide values; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: ~60 landed items in the progress log, among them the Font, Paragraph, Photo Album, theme colour and font and Date and Time dialogs, presenter and show controls, the SmartArt Text Pane and PPTX corpus slices; breadth 84% after `cargo xtask parity`, ready stays ~55%, stage stays alpha; duplicated rows and headers folded; previous: minor, hours to ~95% per audience added) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
 > **Last reviewed:** 2026-10-14 · **Last updated:** 2026-10-18 · **Change:** minor (Symbol-font characters (U+F0xx) remap to the installed Symbol face's real Unicode on macOS, so they draw from Symbol instead of a look-alike; previous: minor, native chart payloads stored in bounded ZIP members; previous: major, community PR wave 2026-10-14: ~60 landed items in the progress log, among them the Font, Paragraph, Photo Album, theme colour and font and Date and Time dialogs, presenter and show controls, the SmartArt Text Pane and PPTX corpus slices; breadth 84% after `cargo xtask parity`, ready stays ~55%, stage stays alpha; duplicated rows and headers folded; previous: minor, hours to ~95% per audience added) · **Target:** Microsoft PowerPoint for Mac 16.113 (Microsoft 365)
@@ -52,7 +52,7 @@ EMF/SVG pictures, the data-loss and startup-crash bugs (#60, #40, #59) and the b
 | UI/UX fidelity | ~60% | 30–50 | [docs/ui-parity.md](docs/ui-parity.md) |
 | File formats (PPTX, PDF, legacy, export) | ~58% | 60–110 | [docs/file-format-parity.md](docs/file-format-parity.md) |
 | Hardware (GPU raster, video decode, displays, pens) | ~40% | 25–45 | [docs/hardware-parity.md](docs/hardware-parity.md) |
-| Localization | ~8% | 55–90 + native review | [docs/localization-parity.md](docs/localization-parity.md) |
+| Localization | ~15% | 45–75 + native review | [docs/localization-parity.md](docs/localization-parity.md) |
 | Performance (unmeasured) | ~55% | 10–20 | [docs/hardware-parity.md](docs/hardware-parity.md#performance) |
 | Stability | ~60% | 10–20 | [docs/gaps.md](docs/gaps.md#stability) |
 | Platforms | ~80% | 5–10 | [Downloads in README](README.md#downloads) |
@@ -87,12 +87,14 @@ EMF/SVG pictures, the data-loss and startup-crash bugs (#60, #40, #59) and the b
 
 ## Languages
 
-English only today; no string catalog yet (Ukrainian is in review as PR #34). Detail:
+A string catalog since 2026-10-25 (one `xx.tsv` per language, Auto follows the system); Hebrew is
+the first non-English interface (Ukrainian is in review as PR #34). Detail:
 [docs/localization-parity.md](docs/localization-parity.md).
 
 | Language | Code | UI strings | Status | Hours to full |
 |---|---|---:|---|---|
 | English | en | 100% | full | 0 |
+| Hebrew | he | 100% of 1,310 keys (not mirrored, no native review) | partial | 8–12 |
 | Simplified Chinese | zh-Hans | 0% | none | 6–10 |
 | Spanish | es | 0% | none | 3–5 |
 | Hindi | hi | 0% | none | 4–7 |
@@ -105,8 +107,7 @@ English only today; no string catalog yet (Ukrainian is in review as PR #34). De
 | Korean | ko | 0% | none | 4–7 |
 | Vietnamese | vi | 0% | none | 3–5 |
 
-Plus 8–14 h once for the catalog infrastructure. Other languages shipped: none. PowerPoint for Mac
-ships 26.
+The catalog infrastructure is done. Other languages shipped: none. PowerPoint for Mac ships 26.
 
 ## Upcoming
 
@@ -134,6 +135,7 @@ app's JSON control channel (`deckcraft --control PORT`).
 
 | Date | What landed |
 |---|---|
+| 2026-10-25 | Interface localization: a string catalog (`crates/ui-egui/src/i18n`, TSV per language, validated on load, English fallback), Auto/system language detection on macOS, Windows, Linux and the web, Preferences ▸ Interface language and `app.language`, `cargo xtask i18n-report`; Hebrew interface with 1,310 rows covering all 1,310 known strings, labels reordered for right-to-left reading (layout not mirrored); the web build embeds Noto Sans Hebrew so Hebrew slides stop drawing as boxes (#81) |
 | 2026-10-23 | Format Background ▸ Apply to All also sets the background of the slide masters the slides use (and clears their layouts' overrides), so new slides keep it (#891) |
 | 2026-10-22 | Table text takes the master's other-text style (`otherStyle`), shapes and text boxes the presentation's default text style, as PowerPoint for Mac draws them (synthetic probe: 14 pt cells under a 14 pt `otherStyle` and a 26 pt `defaultTextStyle`); a private deck's table had been drawn 20 pt instead of 18 |
 | 2026-10-18 | Find (Ctrl+F): "Find what:" has the keyboard as soon as the dialog opens, and keeps it after Enter finds a match, so the search can be typed and changed without clicking the field (#951) |

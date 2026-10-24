@@ -28,7 +28,7 @@ fn bg(ui: &Ui, r: &Response, selected: bool, t: &Tokens) -> Option<Color32> {
 
 /// A large ribbon button: 32 px icon over a one- or two-line label.
 pub fn big_button(ui: &mut Ui, icon: Icon, label: &str, enabled: bool) -> Response {
-    big_button_ex(ui, icon, label, enabled, false, false).0
+    big_button_ex(ui, icon, tl!(label), enabled, false, false).0
 }
 
 /// Large button; with `split`, the label row is a separate dropdown target (returns its response).
@@ -110,7 +110,7 @@ pub fn chevron(p: &egui::Painter, c: egui::Pos2, s: f32, col: Color32) {
 
 /// A small ribbon button: 16 px icon + label in one row (label may be empty).
 pub fn small_button(ui: &mut Ui, icon: Icon, label: &str, enabled: bool, selected: bool) -> Response {
-    small_button_ex(ui, icon, label, enabled, selected, false).0
+    small_button_ex(ui, icon, tl!(label), enabled, selected, false).0
 }
 
 pub fn small_button_ex(ui: &mut Ui, icon: Icon, label: &str, enabled: bool, selected: bool, split: bool) -> (Response, Option<Response>) {
@@ -182,7 +182,7 @@ pub fn icon_toggle(ui: &mut Ui, icon: Icon, tip: &str, enabled: bool, on: bool) 
     icons::paint(&painter, rect.shrink(3.0), icon, t.text, !enabled);
     // Named for screen readers (and tests) by its tooltip.
     resp.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, enabled, tip));
-    resp.on_hover_text(tip)
+    resp.on_hover_text(tl!(tip))
 }
 
 /// Icon with a colour bar under it and a dropdown arrow (Font Color, Highlight, Shape Fill…).
@@ -209,7 +209,7 @@ pub fn color_split(ui: &mut Ui, icon: Icon, tip: &str, color: Color32, enabled: 
         if enabled { color } else { t.text_faint },
     );
     chevron(&painter, pos2(rect.max.x - 5.5, rect.center().y), 2.6, t.text_dim);
-    (main.on_hover_text(tip), arrow)
+    (main.on_hover_text(tl!(tip)), arrow)
 }
 
 /// A ribbon group: contents, then a thin vertical separator.
@@ -292,7 +292,7 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
     let t = Tokens::get(ui.ctx());
     let mut out = None;
     ui.set_min_width(220.0);
-    ui.label(egui::RichText::new("Theme Colors").font(theme::bold(12.0)));
+    ui.label(egui::RichText::new(tl!("Theme Colors")).font(theme::bold(12.0)));
     let slots = [
         SchemeSlot::Lt1,
         SchemeSlot::Dk1,
@@ -315,7 +315,7 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
             Stroke::new(if resp.hovered() { 2.0 } else { 1.0 }, if resp.hovered() { t.accent } else { t.border }),
             egui::StrokeKind::Inside,
         );
-        resp.on_hover_text(tip).clicked()
+        resp.on_hover_text(tl!(tip)).clicked()
     };
     egui::Grid::new("theme_colors").spacing(vec2(3.0, 1.0)).show(ui, |ui| {
         for slot in slots {
@@ -354,7 +354,7 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
         }
     });
     ui.add_space(4.0);
-    ui.label(egui::RichText::new("Standard Colors").font(theme::bold(12.0)));
+    ui.label(egui::RichText::new(tl!("Standard Colors")).font(theme::bold(12.0)));
     ui.horizontal(|ui| {
         ui.spacing_mut().item_spacing.x = 3.0;
         for (c, name) in deckcraft_color::STANDARD_COLORS {
@@ -365,7 +365,7 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
     });
     ui.separator();
     if let Some(n) = none_label
-        && ui.button(n).clicked()
+        && ui.button(tl!(n)).clicked()
     {
         out = Some(None);
     }
@@ -373,8 +373,8 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
     let id = ui.id().with("hex");
     let mut hex: String = ui.data_mut(|d| d.get_temp::<String>(id).unwrap_or_default());
     ui.horizontal(|ui| {
-        ui.label("More Colors… #");
-        let r = ui.add(egui::TextEdit::singleline(&mut hex).desired_width(70.0).hint_text("RRGGBB"));
+        ui.label(tl!("More Colors… #"));
+        let r = ui.add(egui::TextEdit::singleline(&mut hex).desired_width(70.0).hint_text(tl!("RRGGBB")));
         if r.lost_focus()
             && ui.input(|i| i.key_pressed(egui::Key::Enter))
             && let Some(c) = Rgba::from_hex(&hex)
@@ -383,7 +383,7 @@ pub fn color_grid(ui: &mut Ui, scheme: &ColorScheme, none_label: Option<&str>) -
         }
     });
     ui.data_mut(|d| d.insert_temp(id, hex));
-    if ui.button("Eyedropper").on_hover_text("Click the slide to take the colour under the pointer").clicked() {
+    if ui.button(tl!("Eyedropper")).on_hover_text(tl!("Click the slide to take the colour under the pointer")).clicked() {
         crate::eyedropper::request(ui.ctx());
         ui.close();
     }
